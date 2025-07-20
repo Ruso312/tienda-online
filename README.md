@@ -1,59 +1,74 @@
-# TiendaOnline
+# 🛍️ Tienda Online - Angular E-Commerce
+<div align="center">
+  <img src="https://img.shields.io/badge/Angular-20-DD0031?logo=angular&style=for-the-badge" alt="Angular">
+  <img src="https://img.shields.io/badge/TypeScript-4.9-3178C6?logo=typescript&style=for-the-badge" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Responsive-Sí-1AB91A?style=for-the-badge" alt="Responsive">
+  <img src="https://img.shields.io/badge/MockAPI-Integrado-00C7B7?style=for-the-badge" alt="MockAPI">
+</div>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+<div align="center"> <h3>👨‍💻 Desarrollado por</h3> <h5>Dacenzo Marco</h5><h5>42676234</h5><h5>Sede: Tandil</h5><a href="https://github.com/Ruso312"> <img src="https://img.shields.io/badge/Dev-Ruso312-6e5494?style=for-the-badge&logo=github&logoColor=white" alt="Desarrollador"> </a></div>
 
-## Development server
+Una moderna tienda online desarrollada con Angular 20 que incluye catálogo de productos, carrito de compras y panel de administración completo.
 
-To start a local development server, run:
-
-```bash
-ng serve
+## 🌟 Características Principales
+### 🛒 Experiencia de Compra
+| Función | Descripción | Botones Clave |
+|---------|-------------|---------------|
+| **Catálogo de Productos** | Visualiza todos los productos con destaque en ofertas | - |
+| **Filtros Inteligentes** | Separa automáticamente productos normales y en oferta | - |
+| **Agregar al Carrito** | Añade productos al carrito controlando el stock | `Agregar al carrito` |
+| **Carrito Interactivo** | Ajusta cantidades, elimina productos y ve el total | `+` `-` `Eliminar` |
+| **Finalizar Compra** | Completa el proceso de compra con validación | `Finalizar compra` |
+| **Control de Stock** | No permite comprar más unidades de las disponibles | Automático |
+### ⚙️ Panel de Administración
+| Función | Descripción | Botones Clave |
+|---------|-------------|---------------|
+| **Crear Productos** | Añade nuevos productos al catálogo | `Crear Producto` |
+| **Editar Productos** | Modifica productos existentes | `Editar` |
+| **Eliminar Productos** | Remueve productos del sistema | `Eliminar` |
+| **Validaciones Avanzadas** | Previene valores negativos en precio/stock | Automático |
+| **Gestión de Imágenes** | URLs de imágenes con validación | - |
+## 🌐 Navegación y Endpoints
+### 🧭 Rutas de la Aplicación
+| Ruta | Componente | Descripción | Botones de Acceso |
+|------|------------|-------------|-------------------|
+| `/` | `HomeComponent` | Página principal con productos | `Inicio` en header |
+| `/about` | `AboutComponent` | Información sobre la tienda | `Nosotros` en header |
+| `/admin` | `AdminComponent` | Panel de administración | `Administración` en header |
+| `/cart` | `CartComponent` | Vista del carrito de compras | `Carrito` (no implementado) |
+### 🔄 API Endpoints (MockAPI)
+```http
+GET    /products       # Obtener todos los productos
+POST   /products       # Crear nuevo producto
+PUT    /products/:id   # Actualizar producto existente
+DELETE /products/:id   # Eliminar producto
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## 🖥️ Interfaz de Usuario
+### Página Principal (`/`)
+- **Productos en Oferta**: Destacados con etiqueta especial
+- **Productos Normales**: Listado estándar
+- **Botón "Agregar al carrito"**: Solo disponible cuando hay stock
+- **Indicador de Stock**: Muestra unidades disponibles
+### Carrito de Compras
+- **Ajuste de Cantidades**: Con botones +/-
+- **Subtotales**: Calculados por producto
+- **Total General**: Suma de todos los productos
+- **Validación de Stock**: Impide exceder disponibilidad
+### Panel de Administración (`/admin`)
+- **Formulario CRUD**: Para gestión completa de productos
+- **Validaciones en Tiempo Real**: Precio mínimo $0.01, stock no negativo
+- **Listado de Productos**: Vista completa con acciones rápidas
+## 🚀 Cómo Ejecutar el Proyecto
+1. **Clonar repositorio**:
 ```bash
-ng generate component component-name
+git clone https://github.com/tu-usuario/tienda-online-angular.git
+cd tienda-online-angular
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+2. **Instalar dependencias**:
 ```bash
-ng generate --help
+npm install
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+3. **Abrir en navegador**:
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+http://localhost:4200
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
