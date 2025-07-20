@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/MockAPI-Integrado-00C7B7?style=for-the-badge" alt="MockAPI">
 </div>
 
-<div align="center"> <h3>👨‍💻 Desarrollado por</h3> <h5>Dacenzo Marco</h5><h5>42676234</h5><h5>Sede: Tandil</h5><a href="https://github.com/Ruso312"> <img src="https://img.shields.io/badge/Dev-Ruso312-6e5494?style=for-the-badge&logo=github&logoColor=white" alt="Desarrollador"> </a></div>
+<div align="center"> <h3>👨‍💻 Desarrollado por</h3> <h5>Dacenzo Marco</h5><h5>Sede: Tandil</h5><a href="https://github.com/Ruso312"> <img src="https://img.shields.io/badge/Dev-Ruso312-6e5494?style=for-the-badge&logo=github&logoColor=white" alt="Desarrollador"> </a></div>
 
 Una moderna tienda online desarrollada con Angular 20 que incluye catálogo de productos, carrito de compras y panel de administración completo.
 
