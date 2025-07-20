@@ -1,0 +1,136 @@
+.header {
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: scale(1.03);
+    }
+    
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      fill: #3498db;
+    }
+    
+    .logo-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 1.5rem;
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        
+        .nav-icon {
+          fill: #2ecc71;
+        }
+      }
+      
+      .nav-icon {
+        width: 22px;
+        height: 22px;
+        fill: #bdc3c7;
+        transition: fill 0.3s;
+      }
+      
+      span {
+        position: relative;
+        z-index: 1;
+      }
+      
+      &.active-link {
+        background-color: rgba(52, 152, 219, 0.2);
+        color: #3498db;
+        
+        .nav-icon {
+          fill: #3498db;
+        }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80%;
+          height: 3px;
+          background: linear-gradient(90deg, #3498db, #2ecc71);
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    
+    .logo-container {
+      margin-bottom: 1rem;
+    }
+    
+    .navigation {
+      width: 100%;
+      justify-content: center;
+      gap: 0.5rem;
+      
+      .nav-link {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        
+        span {
+          display: none;
+        }
+        
+        .nav-icon {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+  }
+}

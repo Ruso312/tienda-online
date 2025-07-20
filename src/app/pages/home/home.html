@@ -1,0 +1,115 @@
+<div class="main-container">
+    <section class="product-section">
+        <h2 class="section-title">Listado de productos</h2>
+        <div class="product-list">
+            <!-- Mensajes de estado -->
+            @if (isLoading()) {
+                <p>Cargando productos...</p>
+            }
+            @if (error()) {
+                <p class="error-message">{{ error() }}</p>
+            }
+
+            <!-- Productos en oferta -->
+            @for (product of products(); track product.id) {
+                @if (product.inOffer) {
+                    <div class="product-card-horizontal oferta">
+                        <img class="product-img" [src]="product.img" [alt]="product.name">
+                        <div class="product-info">
+                            <h3>{{ product.name }}</h3>
+                            <p>{{ product.description }}</p>
+                            <strong class="product-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</strong>
+                            <span class="oferta-label">¡Oferta!</span>
+                            
+                            <!-- Botón para agregar al carrito -->
+                            <button class="add-to-cart-btn" 
+                                    (click)="addToCart(product)"
+                                    [disabled]="product.stock === 0">
+                                @if (product.stock > 0) {
+                                    Agregar al carrito
+                                } @else {
+                                    Agotado
+                                }
+                            </button>
+                            
+                            <p class="stock-info">Disponibles: {{ product.stock }}</p>
+                        </div>
+                    </div>
+                }
+            }
+
+            <!-- Productos normales -->
+            @for (product of products(); track product.id) {
+                @if (!product.inOffer) {
+                    <div class="product-card-horizontal">
+                        <img class="product-img" [src]="product.img" [alt]="product.name">
+                        <div class="product-info">
+                            <h3>{{ product.name }}</h3>
+                            <p>{{ product.description }}</p>
+                            <strong class="product-price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</strong>
+                            
+                            <!-- Botón para agregar al carrito -->
+                            <button class="add-to-cart-btn" 
+                                    (click)="addToCart(product)"
+                                    [disabled]="product.stock === 0">
+                                @if (product.stock > 0) {
+                                    Agregar al carrito
+                                } @else {
+                                    Agotado
+                                }
+                            </button>
+                            
+                            <p class="stock-info">Disponibles: {{ product.stock }}</p>
+                        </div>
+                    </div>
+                }
+            }
+            
+            @if (products().length === 0 && !isLoading() && !error()) {
+                <p class="empty-message">No hay productos disponibles</p>
+            }
+        </div>
+    </section>
+
+    <aside class="cart-section">
+        <h2 class="section-title">Carrito de compras</h2>
+        <div class="cart-card">
+            <div class="cart-content">
+                @if (cartItems().length === 0) {
+                    <p class="empty-cart-message">Tu carrito está vacío</p>
+                } @else {
+                    <ul class="cart-list">
+                        @for (item of cartItems(); track item.product.id) {
+                            <li class="cart-item">
+                                <div class="item-info">
+                                    <h4>{{ item.product.name }}</h4>
+                                    <p>{{ item.product.price | currency:'USD':'symbol':'1.2-2' }} × {{ item.quantity }}</p>
+                                    <p class="item-subtotal">
+                                        Subtotal: {{ item.product.price * item.quantity | currency:'USD':'symbol':'1.2-2' }}
+                                    </p>
+                                </div>
+                                
+                                <div class="item-actions">
+                                    <button (click)="updateQuantity(item.product.id, item.quantity - 1)">-</button>
+                                    <span class="quantity">{{ item.quantity }}</span>
+                                    <button (click)="updateQuantity(item.product.id, item.quantity + 1)">+</button>
+                                    <button (click)="removeFromCart(item.product.id)" class="remove-btn">
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="cart-total">
+                        <h3>Total: {{ cartTotal() | currency:'USD':'symbol':'1.2-2' }}</h3>
+                    </div>
+                    
+                    <button class="checkout-btn" (click)="checkout()">Finalizar compra</button>
+                }
+            </div>
+        </div>
+    </aside>
+</div>
