@@ -10,6 +10,9 @@
 
 Una moderna tienda online desarrollada con Angular 20 que incluye catálogo de productos, carrito de compras y panel de administración completo.
 
+## 🚀 Demo
+https://stackblitz.com/~/github.com/Ruso312/tienda-online
+
 ## 🌟 Características Principales
 ### 🛒 Experiencia de Compra
 | Función | Descripción | Botones Clave |
