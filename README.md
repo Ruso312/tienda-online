@@ -64,7 +64,7 @@ DELETE /products/:id   # Eliminar producto
 ## 🚀 Cómo Ejecutar el Proyecto
 1. **Clonar repositorio**:
 ```bash
-git clone https://github.com/tu-usuario/tienda-online.git
+git clone https://github.com/Ruso312/tienda-online.git
 cd tienda-online-angular
 ```
 2. **Instalar dependencias**:
